@@ -4,7 +4,16 @@ on:
     branches:
       - main
 jobs:
-  deployment:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: build
+        shell: bash
+        run: |
+          echo "build"
+      
+  deploy:
+    needs: build
     runs-on: ubuntu-latest
     environment: dev
     steps:
